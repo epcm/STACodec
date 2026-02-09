@@ -1,0 +1,29 @@
+# @package __global__
+
+datasource:
+  manifests_dir: .
+  max_sample_rate: 16000
+  max_channels: 1
+
+  timit_p: 0
+  
+  train: 
+    timit: ${datasource.manifests_dir}/timit_train.jsonl
+    librispeech: ${datasource.manifests_dir}/LibriSpeech_train.jsonl
+    tokens: "/data/kaiyuan/sb_benchmarks/benchmarks/DASB/results/hubert-base-tokens/L9/librispeech-960-train-clip/save/librispeech/tokens.scp"
+    # tokens: "/data/kaiyuan/sb_benchmarks/benchmarks/DASB/results/librispeech-960-train-clip-wavlm-dirty/save/librispeech/tokens.scp"
+  valid: 
+    timit: ${datasource.manifests_dir}/timit_test.jsonl
+    librispeech: ${datasource.manifests_dir}/LibriSpeech_dev.jsonl
+    tokens: "/data/kaiyuan/sb_benchmarks/benchmarks/DASB/results/hubert-base-tokens/L9/librispeech-valid-clip/save/librispeech/tokens.scp"
+    # tokens: "/data/kaiyuan/sb_benchmarks/benchmarks/DASB/results/librispeech-valid-clip-wavlm/save/librispeech/tokens.scp"
+  evaluate: 
+    timit: ${datasource.manifests_dir}/timit_test.jsonl
+    librispeech: ${datasource.manifests_dir}/LibriSpeech_test.jsonl
+    tokens: "/data/kaiyuan/sb_benchmarks/benchmarks/DASB/results/hubert-base-tokens/L9/librispeech-test-clip/save/librispeech/tokens.scp"
+    # tokens: "/data/kaiyuan/sb_benchmarks/benchmarks/DASB/results/librispeech-test-clip-wavlm/save/librispeech/tokens.scp"
+  generate: 
+    timit: ${datasource.manifests_dir}/timit_test.jsonl
+    librispeech: ${datasource.manifests_dir}/LibriSpeech_test.jsonl
+    tokens: "/data/kaiyuan/sb_benchmarks/benchmarks/DASB/results/hubert-base-tokens/L9/librispeech-test-clip/save/librispeech/tokens.scp"
+    # tokens: "/data/kaiyuan/sb_benchmarks/benchmarks/DASB/results/librispeech-test-clip-wavlm/save/librispeech/tokens.scp"

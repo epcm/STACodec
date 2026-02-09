@@ -1,0 +1,55 @@
+phone_quant:
+  apply: false
+  task_type: linar_probing
+  dataset: phones
+  weight: 5
+  connect_point: rvq_centroid
+  probs_num: 1
+  
+asr_quant:
+  apply: false
+  task_type: asr
+  weight: 12
+  connect_point: rvq_centroid
+  probs_num: 1
+  ctc_encoder_path: null
+  hidden_dim: 512
+  mode: lstm
+
+token_pred:
+  apply: false
+  task_type: token_prediction
+  weight: 5
+  connect_point: transformer_encoder
+  probs_num: 1
+  hidden_dim: 256
+  mode: transformer
+  mask_params:
+    use_mask: true
+    mask_time_prob: 0.5
+    num_time_masks: 2  
+    mask_time_length: 10  
+    mask_feature_prob: 0.5
+    num_feature_masks: 2  
+    mask_feature_length: 8
+  transformer_params:
+    do_skip_connection: false
+    drop_skip_connection_prob: 1
+    drop_transformer_prob: 0
+    enc_dim: ${seanet.dimension}
+    hidden_size: 768
+    num_hidden_layers: 8
+    num_attention_heads: 16
+    intermediate_size: 2048
+    hidden_dropout_prob: 0.0
+    max_frames_in_trans: 150  # 3 seconds
+    overlap_frames: 50  # 1 second
+    causal: ${encodec.causal}
+    # hidden_size: 256
+    # num_hidden_layers: 4
+    # num_attention_heads: 4
+    # intermediate_size: 1024
+    # hidden_dropout_prob: 0.0
+    # max_frames_in_trans: 150  # 3 seconds
+    # overlap_frames: 50  # 1 second
+    # causal: ${encodec.causal}

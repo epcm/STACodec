@@ -1,0 +1,8 @@
+cache/
+checkpoints/
+output/
+tmp/
+**/__pycache__/
+kmeans_models/
+hf_repo/
+data/

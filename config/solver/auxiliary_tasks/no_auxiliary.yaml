@@ -1,0 +1,26 @@
+phone_quant:
+  apply: false
+  task_type: linar_probing
+  dataset: phones
+  weight: 5
+  connect_point: rvq_centroid
+  probs_num: 1
+  
+asr_quant:
+  apply: false
+  task_type: asr
+  weight: 12
+  connect_point: rvq_centroid
+  probs_num: 1
+  ctc_encoder_path: null
+  hidden_dim: 512
+  mode: lstm
+
+token_pred:
+  apply: false
+  task_type: token_prediction
+  weight: 5
+  connect_point: transformer_encoder
+  probs_num: 1
+  hidden_dim: 512
+  mode: lstm
